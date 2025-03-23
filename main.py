@@ -5,8 +5,18 @@ import pandas as pd
 selectbox1= st.sidebar.selectbox('Choose an option from the menu below', ['Home', 'Ask Axle Bot','About us'])
 
 if selectbox1=='Home':
-    selectbox2= st.sidebar.selectbox('Choose an option from the menu below', ['Live Sessions', 'Recordings', 'Homework Materials', 'Other Resources',])
+    selectbox2= st.sidebar.selectbox('Choose an option from the menu below', ['Select...', 'Live Sessions', 'Recordings', 'Homework Materials', 'Other Resources',])
     button_sb= st.sidebar.button('Contact us')
+
+    if button_sb:
+        st.sidebar.title('Contact us')
+        st.sidebar.write('Have any questions? Feel free to contact us using any of the methods below! ')
+        st.sidebar.header('📞: 403-XXX-XXXX')
+        st.sidebar.header('📤: axle.edu@xxxx.com')
+        st.sidebar.header('Office Hours')
+        st.sidebar.write('Mon-Fri : 8a.m - 4p.m')
+        st.sidebar.write('Sat : 8a.m - 2p.m')
+        st.sidebar.write('Sun : CLOSED')
 
     #Promt user to login or create an account
     home_col1, home_col2 = st.columns(2)
@@ -97,7 +107,7 @@ if selectbox1=='Home':
             file_name= 'example3.pdf',
             mime= 'txt/pdf'
         )
-    else: 
+    elif selectbox2== 'Other Resources': 
         st.title('Other Resources')
         st.header('Youtube Videos:')
         st.markdown('Example 1- https://www.youtube.com')
@@ -121,7 +131,7 @@ elif selectbox1== 'Ask Axle Bot':
         st.markdown(user_msg.text)
     if user_msg and user_msg["files"]:
         st.image(user_msg["files"][0])             
-else: 
+elif selectbox1== 'About us': 
     button_sb= st.sidebar.button('Contact us')
     st.title('About us')
     st.write()
