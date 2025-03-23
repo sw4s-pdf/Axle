@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 
 #Dropdown 1 - sidebar 
-selectbox1= st.sidebar.selectbox('Choose an option from the menu below', ['Home', 'About us'])
+selectbox1= st.sidebar.selectbox('Choose an option from the menu below', ['Home', 'Ask Axle Bot','About us'])
 
 if selectbox1=='Home':
-    selectbox2= st.sidebar.selectbox('Choose an option from the menu below', ['Live Sessions', 'Recordings', 'Homework Materials', 'Other Resources'])
+    selectbox2= st.sidebar.selectbox('Choose an option from the menu below', ['Live Sessions', 'Recordings', 'Homework Materials', 'Other Resources',])
     button_sb= st.sidebar.button('Contact us')
 
     #Promt user to login or create an account
@@ -17,6 +17,8 @@ if selectbox1=='Home':
 
     st.title('Welcome to Axle!')
     st.write('Accessible learning for all')
+
+    st.markdown('---')
 
     if selectbox2=='Live Sessions':
         st.title('Live Sessions')
@@ -105,12 +107,31 @@ if selectbox1=='Home':
         st.markdown('Example 1- https://www.google.com')
         st.markdown('Example 2- https://www.google.com')
         st.markdown('Example 3- https://www.google.com')
-    
+
+elif selectbox1== 'Ask Axle Bot':
+    st.title("Axle Bot")
+    with st.chat_message('user'):
+        st.write('Hello, I am Axle! What can I help you with today?')
+    user_msg = st.chat_input(
+    "Type your question here and/or attatch an image...",
+    accept_file=True,
+    file_type=["jpg", "jpeg", "png"],
+    )
+    if user_msg and user_msg.text:
+        st.markdown(user_msg.text)
+    if user_msg and user_msg["files"]:
+        st.image(user_msg["files"][0])             
 else: 
     button_sb= st.sidebar.button('Contact us')
     st.title('About us')
     st.write()
-    
 
-    
-
+    if button_sb:
+        st.sidebar.title('Contact us')
+        st.sidebar.write('Have any questions? Feel free to contact us using any of the methods below! ')
+        st.sidebar.header('📞: 403-XXX-XXXX')
+        st.sidebar.header('📤: axle.edu@xxxx.com')
+        st.sidebar.header('Office Hours')
+        st.sidebar.write('Mon-Fri : 8a.m - 4p.m')
+        st.sidebar.write('Sat : 8a.m - 2p.m')
+        st.sidebar.write('Sun : CLOSED')
