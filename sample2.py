@@ -12,3 +12,17 @@ if screen == "Main":
 elif screen == "New Screen":
     st.title("New Screen")
     st.write("You are now on a new screen!")
+    content = "This is a sample text file."
+
+import streamlit as st
+
+# Content to be downloaded
+content = "This is a sample text file."
+
+# Create a download button for the text file
+st.download_button(
+    label="Download Text File",
+    data=content,
+    file_name="sample.pdf",
+    mime="txt/pdf"
+)

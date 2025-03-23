@@ -69,12 +69,43 @@ if selectbox1=='Home':
     elif selectbox2=='Recordings':
         st.title('Recordings')
         st.write('Below, you have free access to recordings from live sessions and from other teachers!')
+        st.video('https://youtu.be/xvFZjo5PgG0?si=Sqnyv1MNBg54ecsJ')
+        st.video('https://youtu.be/MtN1YnoL46Q?si=Fvc9xEo8A4ZqsEVT')
 
     elif selectbox2=='Homework Materials':
         st.title('Homework Materials')
+        ex1= "Example 1"
+        st.download_button(
+            label= 'Download pdf',
+            data= ex1, 
+            file_name= 'example1.pdf',
+            mime= 'txt/pdf'
+        )
+        ex2= 'Example 2'
+        st.download_button(
+            label= 'Download pdf',
+            data= ex1, 
+            file_name= 'example2.pdf',
+            mime= 'txt/pdf'
+        )
+        ex3= 'Example 3'
+        st.download_button(
+            label= 'Download pdf',
+            data= ex3, 
+            file_name= 'example3.pdf',
+            mime= 'txt/pdf'
+        )
     else: 
         st.title('Other Resources')
-
+        st.header('Youtube Videos:')
+        st.markdown('Example 1- https://www.youtube.com')
+        st.markdown('Example 2- https://www.youtube.com')
+        st.markdown('Example 3- https://www.youtube.com')
+        st.header('Websites:')
+        st.markdown('Example 1- https://www.google.com')
+        st.markdown('Example 2- https://www.google.com')
+        st.markdown('Example 3- https://www.google.com')
+    
 else: 
     button_sb= st.sidebar.button('Contact us')
     st.title('About us')
